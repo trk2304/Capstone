@@ -1,0 +1,24 @@
+-- Create the users table
+CREATE TABLE user (
+	userID INT NOT NULL AUTO_INCREMENT,
+	username CHAR(20) NOT NULL UNIQUE,
+	passHash TEXT NOT NULL,
+	CONSTRAINT userPK PRIMARY KEY (userID)
+);
+
+-- Creating the listings table
+CREATE TABLE listings (
+	ItemID INT NOT NULL AUTO_INCREMENT,
+	userID INT NOT NULL,
+	username CHAR(20) NOT NULL UNIQUE,
+	ItemName CHAR(50) NOT NULL,
+	ItemDescription TEXT NOT NULL,
+	AskingPrice DECIMAL NOT NULL,
+	CONSTRAINT itemPK PRIMARY KEY (ItemID),
+	CONSTRAINT item_userid_FK FOREIGN KEY user (userID) REFERENCES user (userID)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE,
+	CONSTRAINT item_username_FK FOREIGN KEY user (username) REFERENCES user (username)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
+);
