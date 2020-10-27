@@ -28,7 +28,10 @@
         margin: 4px;
       }
 
-      
+      #workArea {
+        border: 1px solid black;
+        padding: 20px;
+      }
     </style>
 
 </head>
@@ -67,17 +70,55 @@
     userID and username, ItemName, ItemDescription, AskingPrice.
 
 -->
+<br><br>
+
+<div class="row">
+    <div class="col-md-6 mx-auto">
+      <div id="button">
+        <button class="btn btn-primary" onclick="pullData()">Pull From Listings Table</button>
+      </div>  
+    </div> 
+
+    <div class="col-md-6 mx-auto" id="workArea">
+      <!-- Items will appear in here -->
+    </div>
+</div>
 
 
 
 </div>
 
+<script>
+  //pullData()
+  function pullData() {
+    let req = new XMLHttpRequest();
+    req.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        
+        let results = JSON.parse(this.responseText);
 
-    <!-- Optional JavaScript; choose one of the two! -->
+        let renderStr = '';
+        for(let i = 0; i < results.length; i++) {
+          let object = JSON.parse(results[i]);
+          renderStr = renderStr + "<div class='box'><h3>" + object['ItemName'] + "</h3><p>Description: " + object['ItemDescription'] + "</p><p>Seller: " + object['username'] + "</p><p>Asking Price: " + object['AskingPrice'] + "</p></div>";
+        }
+        
+        document.getElementById('workArea').innerHTML = renderStr;
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+      }
+    };
+    req.open('GET','pullListings.php', true);
+    req.send();
+  }
+
+</script>
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     
 </body>

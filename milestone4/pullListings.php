@@ -25,17 +25,17 @@ $json_array = array();
 // If I'm not getting any rows back
 if($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $addTo = json_encode($row);
-        array_push($json_array, $addTo);
+        array_push($json_array, json_encode($row));
     }
 } else {
     echo "You didn't get anything back";
 }
 
-// Something went wrong if this happens.
+
 if(sizeof($json_array) > 0) {
-    var_dump($json_array);
+    echo json_encode($json_array);
 } else {
+    // Something went wrong if this happens.
     echo "something went wrong with json formatting";
 }
 
