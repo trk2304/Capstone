@@ -6,7 +6,7 @@
 */
 
 // Create a new DB 
-$conn = new mysqli('localhost', 'titus', 'password', 'midtrade');
+$conn = new mysqli('midn.cs.usna.edu', 'm213438', 'changeme', 'midtrade');
 
 // Check if connection was successful
 if ($conn->connect_error) {
