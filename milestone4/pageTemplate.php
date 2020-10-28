@@ -89,7 +89,14 @@
 </div>
 
 <script>
-  //pullData()
+  
+  /**
+  *
+  * This function is event-based. Carries out an AJAX call that prompts the PHP script included to 
+  * grab data from the listngs table. Since there is no input, we don't need to worry about scrubbing yet. 
+  *
+  **/
+
   function pullData() {
     let req = new XMLHttpRequest();
     req.onreadystatechange = function() {
