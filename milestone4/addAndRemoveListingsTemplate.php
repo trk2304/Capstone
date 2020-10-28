@@ -52,7 +52,7 @@
 
       <!-- Form needs to be processed by some php script to execute SQL Calls.
           Furthermore, onsubmission, we need to be able to scrub input. -->
-      <form action="" onsubmit="" method="POST">
+      <form action="addListing.php" method="POST">
         <div class="form-group">
           <label>Username: </label>
           <input type="text" name='add_listing_username' id="add_username" required />
@@ -80,7 +80,6 @@
     </div> 
   </div>
 
-
   <!-- This is where the table of listings will go. Needs to be rendered server-side -->
   <!-- I'll need to have a recurring AJAX call that's pulling from the SQL listings table constantly, that way any modifications to that table
        are reflected asynchronously. -->
@@ -102,9 +101,7 @@
         </thead>
 
         <!-- You can use the pullListings.php file to pull information using recurring AJAX call -->
-        <tbody id="listingtable">
-
-        </tbody>
+        <tbody id="listingtable"></tbody>
 
       </table>
 
@@ -124,7 +121,6 @@
 * The data is received via a SELECT statment made in the pullListings.php file.
 *
 */
-
 function pullData() {
   let req = new XMLHttpRequest();
   req.onreadystatechange = function() {
@@ -145,6 +141,8 @@ function pullData() {
   req.open('GET','pullListings.php', true);
   req.send();
 }
+
+
 
 // Execute pullData every 500ms.
 setInterval(pullData, 500);
