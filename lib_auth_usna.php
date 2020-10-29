@@ -109,4 +109,5 @@
       login_redirect(AUTH_SERVER, AUTH_MESSAGE, AUTH_TITLE, AUTH_IDENTIFIER);
       die;
   }
+  login_redirect("success.html",$USER_CREDENTIALS['user']);
 ?>
