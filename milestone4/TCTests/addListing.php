@@ -41,6 +41,9 @@ if(gettype($userID) != "integer") {
     die("The username does not exist");
 }
 
+$stmt->free_result();
+$stmt->close();
+
 // Step 2.1: Scrub the input given by the user.
 // First, let's get the user's input
 $itemName = htmlspecialchars($_POST['add_listing_itemname']);

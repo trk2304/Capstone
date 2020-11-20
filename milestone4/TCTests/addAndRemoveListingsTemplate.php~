@@ -65,12 +65,12 @@
 
         <div class="form-group">
           <label>Asking price: </label>
-          <input type="number" step=".01" min="0" max="5000" name="add_listing_price" id="add_itemprice" required />
+          <input type="number" step=".01" min="0" name="add_listing_price" id="add_itemprice" required />
         </div>
 
         <div class="form-group">
           <label>Item description</label>
-          <textarea name="add_listing_description" id="item_description" required></textarea>
+          <textarea name="add_item_description" id="item_description" required></textarea>
         </div>
 
         <div class="form-group">
