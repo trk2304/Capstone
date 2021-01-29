@@ -36,7 +36,7 @@
 
       </v-navigation-drawer>
 
-      <router-view></router-view>
+      
     </div>
     
 </template>
@@ -64,6 +64,12 @@ export default {
                 navTitle: "Your Messages", 
                 isActive: false,
                 route: '/user/myMessages'
+              }, 
+              {
+                id: 4,
+                navTitle: "Profile Settings",
+                isActive: false,
+                route: '/user/mySettings'
               }
           ]
       }

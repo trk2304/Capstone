@@ -1,8 +1,12 @@
 <template>
     <div>
-        <v-container fluid>
+        <v-container>
             <ProfileNav/>
-            
+            <v-row class="main">
+                <v-col cols="lg-12 md-7 sm-5">
+                    <router-view></router-view>
+                </v-col>
+            </v-row>
         </v-container>
     </div>
 </template>
@@ -19,5 +23,15 @@ export default {
 </script>
 
 <style scoped>
+.main {
+    width: 85%;
+    padding: 2rem;
+}
+
+@media only screen and (max-width: 1200px) {
+    .main {
+        width: 72%;
+    }
+}
 
 </style>
