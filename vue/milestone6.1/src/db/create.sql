@@ -39,7 +39,12 @@ CREATE TABLE messages (
 	messageID INT NOT NULL AUTO_INCREMENT,
 	userID INT NOT NULL,
 	recipientID INT NOT NULL,
-	message TEXT,
+	message TEXT NOT NULL,
+	uploadDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+	CONSTRAINT PK_messageID PRIMARY KEY (messageID),
+	CONSTRAINT FK_userID_messages FOREIGN KEY (userID) REFERENCES user(userID),
+	CONSTRAINT FK_recipientID_messages FOREIGN KEY (recipientID) REFERENCES user(userID)
 	
 );
 
@@ -53,7 +58,7 @@ CREATE TABLE session (
 	lastUpdated TIMESTAMP NOT NULL,
 
 	CONSTRAINT PK_sessionID PRIMARY KEY (sessionID),
-	CONSTRAINT PK_userID FOREIGN KEY (userID) REFERENCES user(userID)
+	CONSTRAINT FK_userID_session FOREIGN KEY (userID) REFERENCES user(userID)
 );
 
 { review }
@@ -69,7 +74,7 @@ CREATE TABLE review (
 	uploadDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 
 	CONSTRAINT PK_reviewID PRIMARY KEY (reviewID),
-	CONSTRAINT FK_userID FOREIGN KEY (userID) references user(userID),
+	CONSTRAINT FK_userID_review FOREIGN KEY (userID) references user(userID),
 	CONSTRAINT FK_reviewedUserID FOREIGN KEY (reviewedUserID) references user(userID)
 
 );

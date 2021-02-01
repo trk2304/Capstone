@@ -2,6 +2,11 @@
     <div>
         <v-container>
             <ProfileNav/>
+                
+                <div v-if="this.$route.path == '/user'">
+                    <br><br>
+                    <h1 class="display-4">User Dashboard</h1>
+                </div>
             <v-row class="main">
                 <v-col cols="lg-12 md-7 sm-5">
                     <router-view></router-view>
@@ -24,7 +29,7 @@ export default {
 
 <style scoped>
 .main {
-    width: 85%;
+    width: 80%;
     padding: 2rem;
 }
 
