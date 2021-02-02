@@ -7,17 +7,21 @@
         <AddListing/>
         <br><br>
         <EditProfile/>
+        <br><br>
+        <UploadProfilePic/>
     </div>
 </template>
 
 <script>
 import AddListing from './AddListing.vue'
 import EditProfile from './EditProfile.vue'
+import UploadProfilePic from './UploadProfilePic.vue'
 export default {
     name: 'ProfileSettings',
     components: {
         AddListing,
-        EditProfile
+        EditProfile,
+        UploadProfilePic
     }
 }
 </script>

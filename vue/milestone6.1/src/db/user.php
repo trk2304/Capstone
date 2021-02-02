@@ -13,7 +13,7 @@ class User {
     }
 
     public function changeProfilePic() {
-
+        
     }
 
     public function changeBio($userID, $bio) {
