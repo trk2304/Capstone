@@ -12,8 +12,11 @@ class User {
         }
     }
 
-    public function changeProfilePic() {
-        
+    public function changeProfilePic($userID, $filePath) {
+        $stmt = $this->db->prepare("UPDATE user SET profilePic = ? WHERE userID = ?");
+        $stmt->bind_param('si', $filePath, $userID);
+        $stmt->execute();
+        $stmt->close();
     }
 
     public function changeBio($userID, $bio) {

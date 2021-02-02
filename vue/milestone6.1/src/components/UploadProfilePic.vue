@@ -48,6 +48,7 @@ export default {
                 // Create formData object
                 const fd = new FormData();
                 fd.append('image', this.fileInput, this.fileInput.name)
+                fd.append('userID', 1)
                 axios.post("http://localhost/milestone6.1/src/db/handleProfileImage.php", fd)
                 .then(result => {
                     console.log(result.data);

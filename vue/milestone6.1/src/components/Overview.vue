@@ -9,14 +9,15 @@
                     size="150"
                     class="mb-6"
                 >
-                    <img src="http://via.placeholder.com/300" alt="Profile Picture">
+                    <img v-if=" this.user[0] " :src="this.imageLink" alt="Profile Picture Link is broken" :key="this.imageLink">
+
+                    <img v-else src="https://via.placeholder.com/150" alt="Placeholder Profile Picture" :key="this.imageLink">
                 </v-avatar>
             </div>
-
             <div class="welcome">
                 <h1 class="display-1">Welcome to my Profile</h1>
                 <br>
-                <h3 @click="test()">About Me:</h3>
+                <h3>About Me:</h3>
                 <p>{{ user[0].bio }}</p>
             </div>
 
@@ -29,25 +30,21 @@
 import axios from 'axios'
 export default {
     name: "Overview",
-    // Add component for bio.
     data() {
         return {
-            user: ''
+            user: '',
+            imageLink:''
         }
     },
-    mounted() {
+    beforeMount() {
         axios.get("http://localhost/milestone6.1/src/db/getUser.php/")
         .then(response => {
             this.user = response.data
+            this.imageLink = require("../images/" + this.user[0].profilePic)
         })
         .catch(function(error) {
             console.log(error)
         })
-    },
-    methods: {
-        test: function() {
-            console.log(this.user)
-        }
     }
 }
 </script>

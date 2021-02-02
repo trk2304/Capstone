@@ -1,5 +1,5 @@
 <?php
-
+require('user.php');
 // Taken from this source for development purposes: https://stackoverflow.com/questions/61642547/php-response-to-preflight-request-doesnt-pass-access-control-check-it-does-n
 // USE THESE HEADERS FOR EVERY SCRIPT THAT CALLS TO THE DB!!!!
 header('Access-Control-Allow-Origin: *');
@@ -15,13 +15,26 @@ if ($method == "OPTIONS") {
 }
 
 if(isset($_POST)) {
-    $profileImageName = time() . "_" . $FILES['image']['name'];
+    $userObject = new User();
 
-    $target = 'http://localhost/milestone6.1/src/images/' . $profileImageName;
+    /* $profileImageName = time() . "_" . $FILES['image']['name'];
 
-    move_uploaded_file($_FILES['image']['tmp_name'], $target);
+    $target = '/var/www/html/milestone6.1/src/images/' . basename($profileImageName); */
 
-    echo $target;
+    $targetDirectory = '/var/www/html/milestone6.1/src/images/';
+
+    $profileImageName = basename($_FILES['image']['name']);
+
+    $target = $targetDirectory . $profileImageName;
+
+    if( move_uploaded_file($_FILES['image']['tmp_name'], $target) ) {
+        echo "The file " . htmlspecialchars( basename( $_FILES['image']['name'] ) ) . " has been uploaded";
+
+        $userObject->changeProfilePic($_POST['userID'], $profileImageName);
+
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
 }
 
 ?>
