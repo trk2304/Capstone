@@ -64,7 +64,7 @@ export default {
     },
     mounted() {
         // You should be able to modify the URL based on what the current route is.
-        axios.get("http://localhost/milestone8_titus/src/db/getUserListings.php/")
+        axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getUserListings.php/")
         .then(response => {
             this.listings = response.data
             console.log(response.data)
@@ -77,7 +77,7 @@ export default {
         deleteListing: function(id) {
             console.log("Delete this thing with the following ID: " + id)
 
-            axios.post('http://localhost/milestone6.1/src/db/deleteUserListing.php', {
+            axios.post('http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/deleteUserListing.php', {
                 listingID: id
             })
             .then(function(response) {

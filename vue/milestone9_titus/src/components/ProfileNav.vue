@@ -78,7 +78,7 @@ export default {
     },
     created() {
       // Attempting to get the username to display in the Profile Nav.
-        axios.get("http://localhost/milestone7/src/db/getUser.php")
+        axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getUser.php")
         .then(response => {
           this.user = response.data
           console.log(response.data)

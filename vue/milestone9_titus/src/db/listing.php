@@ -5,7 +5,7 @@ class Listing {
     private $db = null;
 
     public function __construct() {
-        $this->db = mysqli_connect("localhost", "root", "password", "midtrade");
+        $this->db = mysqli_connect("midn.cs.usna.edu", "m213438", "changeme", "midtrade");
 
         if(!$this->db) {
             die("Connection failed: " . mysqli_connect_error());

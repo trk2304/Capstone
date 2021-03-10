@@ -37,7 +37,7 @@ export default {
         }
     },
     beforeMount() {
-        axios.get("http://localhost/milestone8_titus/src/db/getUser.php/")
+        axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getUser.php/")
         .then(response => {
             this.user = response.data
             if(this.user[0].profilePic === undefined || this.user[0].profilePic === null || this.user[0].profilePic == "") {

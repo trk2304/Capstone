@@ -21,7 +21,7 @@ if(isset($_POST)) {
 
     $target = '/var/www/html/milestone6.1/src/images/' . basename($profileImageName); */
 
-    $targetDirectory = '/var/www/html/milestone6.1/src/images/';
+    $targetDirectory = '/var/www/html/MidTrade/Capstone/vue/milestone9_titus/src/images/';
 
     $profileImageName = basename($_FILES['image']['name']);
 
@@ -35,6 +35,8 @@ if(isset($_POST)) {
     } else {
         echo "Could not upload image.";
     }
-}
+} else {
+  echo "Could not upload image";
 
+}
 ?>

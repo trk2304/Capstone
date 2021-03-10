@@ -26,7 +26,7 @@ if(isset($_POST)) {
     echo $result["productName"];
     // Type cast the price
     $price = (double)$result['productPrice'];
-    $listingObject->addListing(3, $result['productName'], $result['productDescription'], $price, "tech");
+    $listingObject->addListing(1, $result['productName'], $result['productDescription'], $price, "tech");
 }
 
 ?>

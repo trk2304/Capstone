@@ -18,7 +18,7 @@ if ($method == "OPTIONS") {
 $userObject = new User();
 
 // Go back and change parameter later so that any user can be retrieved.
-$userInfo = $userObject->getUser(3);
+$userInfo = $userObject->getUser(1);
 
 echo json_encode($userInfo);
 

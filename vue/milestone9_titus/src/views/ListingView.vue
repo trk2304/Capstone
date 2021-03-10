@@ -25,7 +25,7 @@ export default {
         }
     },
     created() {
-        axios.post("http://localhost/milestone8_titus/src/db/getListingById.php/", {
+        axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getListingById.php/", {
             id: this.$route.params.id
         })
         .then(response => {

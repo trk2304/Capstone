@@ -74,7 +74,7 @@ export default {
     }
   },
   created() {
-    axios.get("http://localhost/milestone8_titus/src/db/getAllListings.php")
+    axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getAllListings.php")
     .then(result => {
       this.listings = result.data
       console.log(this.listings)

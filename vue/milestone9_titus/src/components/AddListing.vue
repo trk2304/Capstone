@@ -68,7 +68,7 @@ export default {
     },
     methods: {
         submitForm: function() {
-           axios.post("http://localhost/milestone8_titus/src/db/addUserListing.php/", {
+           axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/addUserListing.php/", {
                 productName: this.productName,
                 productPrice: this.productPrice,
                 productDescription: this.productDescription
