@@ -24,10 +24,6 @@ const routes = [
         component: () => import('../components/MyListings.vue')
       },
       {
-        path: 'myMessages',
-        component: () => import('../components/MyMessages.vue')
-      },
-      {
         path: 'mySettings',
         component: () => import('../components/ProfileSettings.vue')
       }

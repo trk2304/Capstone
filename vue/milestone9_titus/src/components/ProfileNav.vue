@@ -60,14 +60,8 @@ export default {
                 isActive: false,
                 route: '/user/myListings'
               },
-              { 
-                id: 3,
-                navTitle: "Your Messages", 
-                isActive: false,
-                route: '/user/myMessages'
-              }, 
               {
-                id: 4,
+                id: 3,
                 navTitle: "Profile Settings",
                 isActive: false,
                 route: '/user/mySettings'
