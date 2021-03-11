@@ -12,7 +12,7 @@
       <v-spacer></v-spacer>
 
       <router-link to="/" class="navLink">Home</router-link>
-      <router-link to="/user" class="navLink">Profile</router-link>
+      <router-link to="/user/:id/overview" class="navLink">Profile</router-link>
       <router-link to="/listings" class="navLink">Listings</router-link>
     </v-app-bar>
 

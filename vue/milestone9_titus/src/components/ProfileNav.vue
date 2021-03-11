@@ -52,19 +52,19 @@ export default {
                 id: 1,
                 navTitle: "Profile Overview",
                 isActive: true,
-                route: '/user/overview'
+                route: '/user/:id/overview'
               },
               { 
                 id: 2,
                 navTitle: "Your Listings",
                 isActive: false,
-                route: '/user/myListings'
+                route: '/user/:id/myListings'
               },
               {
                 id: 3,
                 navTitle: "Profile Settings",
                 isActive: false,
-                route: '/user/mySettings'
+                route: '/user/:id/mySettings'
               }
           ],
           user: ''
