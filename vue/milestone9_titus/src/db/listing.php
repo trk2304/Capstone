@@ -17,7 +17,7 @@ class Listing {
      */
     public function addListing($userID, $productName, $description, $price, $category) {
         $stmt = $this->db->prepare("INSERT INTO listing (userID, description, productName, price, category) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param('issds', $userID, $description, $productName, $price, $category);
+        $stmt->bind_param('sssds', $userID, $description, $productName, $price, $category);
         $stmt->execute();
         $stmt->close();
     }

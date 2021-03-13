@@ -71,7 +71,8 @@ export default {
            axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/addUserListing.php/", {
                 productName: this.productName,
                 productPrice: this.productPrice,
-                productDescription: this.productDescription
+                productDescription: this.productDescription,
+                userID: this.$store.getters.getUser
             }).then(response => {
                 console.log(response);
                 alert('Listing successfully added!')

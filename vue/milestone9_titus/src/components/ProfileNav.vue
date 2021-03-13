@@ -9,13 +9,14 @@
       >
         <template v-slot:prepend>
           <v-list-item two-line>
-            <v-list-item-avatar>
+            <v-list-item-avatar color="indigo" size="48">
               <!-- Image that will get pulled from db -->
-              <img src="http://via.placeholder.com/300">
+              
+               <span id="icon" class="white--text headline">M</span>
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title>User {{user[0].userID}}</v-list-item-title>
+              <v-list-item-title>{{user[0].userID}}</v-list-item-title>
               <v-list-item-subtitle>User</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
@@ -31,6 +32,12 @@
               :to="item.route"
           >
               {{item.navTitle}}
+          </v-list-item>
+
+          <v-list-item
+            class="nav-item"
+            v-on:click="logout">
+            Logout 
           </v-list-item>
         </v-list>
 
@@ -52,19 +59,19 @@ export default {
                 id: 1,
                 navTitle: "Profile Overview",
                 isActive: true,
-                route: '/user/:id/overview'
+                route: 'overview'
               },
               { 
                 id: 2,
                 navTitle: "Your Listings",
                 isActive: false,
-                route: '/user/:id/myListings'
+                route: 'myListings'
               },
               {
                 id: 3,
                 navTitle: "Profile Settings",
                 isActive: false,
-                route: '/user/:id/mySettings'
+                route: 'mySettings'
               }
           ],
           user: ''
@@ -72,14 +79,22 @@ export default {
     },
     created() {
       // Attempting to get the username to display in the Profile Nav.
-        axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getUser.php")
+        axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getUser.php?userID=" + this.$store.getters.getUser)
         .then(response => {
           this.user = response.data
           console.log(response.data)
+          console.log(this.$store.getters.getUser)
         })
         .catch(e => {
           console.log(e)
         })
+    },
+
+    methods: {
+      logout: function() {
+        this.$store.commit('logout')
+        window.location.href="http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/lib_auth_usna.php"
+      }
     }
     
 }
@@ -88,5 +103,10 @@ export default {
 <style scoped>
    .nav-item:hover {
        background: #FFCDD2;
+    }
+
+    #icon {
+      text-align: center;
+      margin: auto;
     }
 </style>

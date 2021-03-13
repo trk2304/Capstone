@@ -77,11 +77,17 @@ export default {
     axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getAllListings.php")
     .then(result => {
       this.listings = result.data
-      console.log(this.listings)
     })
     .catch(e => {
       console.log(e)
     })
+
+    //Set the user and token in the store since this is the first stop after login.
+    if(this.$store.getters.getUser == null) {
+      this.$store.commit('setUser', this.$route.query.user)
+      this.$store.commit('setToken', this.$route.query.token)
+    }
+
   }
 }
 </script>

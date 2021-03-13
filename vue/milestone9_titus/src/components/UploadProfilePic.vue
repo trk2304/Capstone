@@ -48,7 +48,7 @@ export default {
                 // Create formData object
                 const fd = new FormData();
                 fd.append('image', this.fileInput, this.fileInput.name)
-                fd.append('userID', 1)
+                fd.append('userID', this.$store.getters.getUser)
                 axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/handleProfileImage.php", fd)
                 .then(result => {
                     if(result.data === "Could not upload image.") {

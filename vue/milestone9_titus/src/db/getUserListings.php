@@ -22,7 +22,7 @@ require_once('listing.php');
 $listingObject = new Listing();
 
 // Passing in 1 for the only user in the db.
-$result = $listingObject->getUserListings(1);
+$result = $listingObject->getUserListings($_GET['userID']);
 
 echo json_encode($result);
 ?>

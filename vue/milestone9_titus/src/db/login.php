@@ -17,8 +17,19 @@ if( $exists == null ) {
   $userObject->insertUser($_GET['display']);
 }
 
+
+// Get the token from the qString
+
+$queryString = $_GET['qstring'];
+
+$queryArray = explode("&", $queryString);
+
+$tokenString = $queryArray[0];
+
+$justToken = substr($tokenString, 6);
+
+$user = $_GET['display'];
+
 // Redirect
-
-header("Location: http://10.1.83.57:8080?$_GET");
-
+header("Location: http://10.1.83.57:8080?token=$justToken&user=$user");
 ?>

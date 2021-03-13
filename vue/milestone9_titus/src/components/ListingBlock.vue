@@ -28,7 +28,7 @@
                         <v-btn
                             color="primary"
                             text
-                            to="/listingView"
+                            :to="'/listingView/' + listing.listingID"
                         >
                             View Listing
                         </v-btn>
@@ -64,7 +64,7 @@ export default {
     },
     mounted() {
         // You should be able to modify the URL based on what the current route is.
-        axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getUserListings.php/")
+        axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getUserListings.php?userID=" + this.$store.getters.getUser)
         .then(response => {
             this.listings = response.data
             console.log(response.data)
@@ -94,7 +94,7 @@ export default {
         },
         // Only access this function if the route is in the profile. Keeps others from deleting this user's posts.
         profile: function() {
-            if(this.$route.fullPath == "/user/myListings") {
+            if(this.$route.fullPath.includes(this.$store.getters.getUser)) {
                 return true
             } else {
                 return false

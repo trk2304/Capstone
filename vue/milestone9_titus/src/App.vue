@@ -12,7 +12,7 @@
       <v-spacer></v-spacer>
 
       <router-link to="/" class="navLink">Home</router-link>
-      <router-link to="/user/:id/overview" class="navLink">Profile</router-link>
+      <router-link :to="'/user/' + this.$store.getters.getUser + '/overview'" class="navLink">Profile</router-link>
       <router-link to="/listings" class="navLink">Listings</router-link>
     </v-app-bar>
 
@@ -26,7 +26,12 @@
 <script>
 
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      user: this.$store.getters.getUser
+    }
+  }
 };
 </script>
 

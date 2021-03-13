@@ -38,9 +38,9 @@ export default {
     methods: {
         // The userID will need to be dynamic. Should depend on dynamic link at some point.
         submitForm: function() {
-            axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/editBio.php", {
+            axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/editBio.php?userID=" + this.$store.getters.getUser, {
                 bio: this.bio,
-                userID: 1
+                userID: this.$store.getters.getUser
             })
             .then(response => {
                 console.log(response.data)

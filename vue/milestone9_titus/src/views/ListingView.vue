@@ -3,12 +3,15 @@
         <br>
         <h1 class="display-3">{{listing[0].productName}} - ${{listing[0].price}}</h1>
         <br>
-        <h1 class="display-1">Seller: User {{listing[0].userID}}</h1>
+        <h1 class="display-1">Seller: {{listing[0].userID}}</h1>
+        
+        <br>
+        <h3>Here's my Email: <a :href="'mailto:'+listing[0].userID +'@usna.edu'">Message me now!</a></h3>
         <br>
 
         <!-- Image of the Item Goes Here -->
         <div class="image-box">**This is where the image would go...**</div>
-
+      
         <br>
         <h3>Description:</h3>
         <p class="lead">{{listing[0].description}}</p>
