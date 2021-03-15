@@ -4,10 +4,10 @@
             <v-row justify="center">
                 <v-col cols="12">
                     <v-form id="uploadProfilePic" @submit.prevent="validateForm()">
-                        <h2>Change Your Profile Pic Here:</h2>
+                        <h2>Change Profile Picture:</h2>
                         <v-file-input
                             v-model="fileInput"
-                            label="Click Me!"
+                            label="Click to Access File Browser:"
                             counter
                             clearable
                             :rules="['Required']"
@@ -20,7 +20,7 @@
                             form="uploadProfilePic"
 
                         >
-                            Upload
+                            Upload This Picture
                         </v-btn>
                     </v-form>
                 </v-col>

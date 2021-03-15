@@ -82,8 +82,6 @@ export default {
         axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getUser.php?userID=" + this.$store.getters.getUser)
         .then(response => {
           this.user = response.data
-          console.log(response.data)
-          console.log(this.$store.getters.getUser)
         })
         .catch(e => {
           console.log(e)

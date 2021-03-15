@@ -3,18 +3,23 @@
         <br>
         <h1 class="display-3">{{listing[0].productName}} - ${{listing[0].price}}</h1>
         <br>
-        <h1 class="display-1">Seller: {{listing[0].userID}}</h1>
+        <h1 class="display-1">Seller: <a :href="'/viewUser/' + listing[0].userID">{{listing[0].userID}}</a></h1>
         
         <br>
         <h3>Here's my Email: <a :href="'mailto:'+listing[0].userID +'@usna.edu'">Message me now!</a></h3>
         <br>
 
         <!-- Image of the Item Goes Here -->
-        <div class="image-box">**This is where the image would go...**</div>
-      
+
+          <h3>Photos of {{this.listing[0].productName}}:</h3>
+          <div v-if="this.images.length > 0">
+              <v-container class="d-flex justify-space-around">
+                <v-img max-width="500px" max-height="500px" contain v-for="image in images" :src="image.path" alt="Broken file" :key="image.imageID"></v-img>
+              </v-container>
+          </div>
         <br>
-        <h3>Description:</h3>
-        <p class="lead">{{listing[0].description}}</p>
+        <h2>Description:</h2>
+        <p class="body-1">{{listing[0].description}}</p>
     </v-container>
 </template>
 
@@ -24,16 +29,36 @@ export default {
     name: "ListingView",
     data() {
         return {
-            listing: {}
+            listing: {},
+            images: []
         }
     },
     created() {
+        // Gathers the info related to the listing.
         axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getListingById.php/", {
             id: this.$route.params.id
         })
         .then(response => {
             this.listing = response.data
-            console.log(this.listing)
+            let idForImages = this.listing[0].listingID
+            console.log(idForImages)
+
+            
+            // Gathers images related to the listing.
+            axios.get("https://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getImageById.php?id=" + idForImages)
+            .then(result => {
+              this.images = result.data
+              console.log(this.images)
+              
+              // Need to set up paths for image URLs
+              for(let i = 0; i < this.images.length; i++) {
+                this.images[i].path = require('../images/' + this.images[i].path)
+                console.log(this.images[i].path);
+              }
+            })
+            .catch(e => {
+              console.log(e)
+            })
         })
         .catch(e => {
             console.log(e)
@@ -43,5 +68,9 @@ export default {
 </script>
 
 <style scoped>
-
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 </style>

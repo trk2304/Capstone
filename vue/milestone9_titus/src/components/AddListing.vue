@@ -68,16 +68,29 @@ export default {
     },
     methods: {
         submitForm: function() {
-           axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/addUserListing.php/", {
-                productName: this.productName,
-                productPrice: this.productPrice,
-                productDescription: this.productDescription,
-                userID: this.$store.getters.getUser
-            }).then(response => {
-                console.log(response);
-                alert('Listing successfully added!')
-            })
+           if(this.productName != '' && this.productPrice != '' && this.productDescription != '') {
             
+             //Negative number check
+             if(this.productPrice < 0) {
+               this.productPrice = Math.abs(this.productPrice)
+             }
+             axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/addUserListing.php/", {
+                  productName: this.productName,
+                  productPrice: this.productPrice,
+                  productDescription: this.productDescription,
+                  userID: this.$store.getters.getUser
+              }).then(response => {
+                  console.log(response);
+                  alert('Listing successfully added!')
+              })
+
+              this.productName = ''
+              this.productPrice = ''
+              this.productDescription = ''
+              window.location.reload()
+            } else {
+              alert('Ensure all fields are filled out.')
+            }
         }
     }
 }

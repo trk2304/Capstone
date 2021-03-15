@@ -3,12 +3,13 @@
         <v-container>
             <v-row justify="center">
                 <v-col cols="12">
-                    <h2>Edit your Bio Here:</h2>
+                    <h2>Change your Bio Here:</h2>
 
                     <v-form id="editBio" @submit.prevent="submitForm()">
                         <v-textarea
                             v-model.trim="bio"
-                            placeholder="Place your new Bio here."
+                            placeholder="Place your new Bio here and click 'Submit' to commit changes."
+                            :rules="['Required']"
                         ></v-textarea>
                             <v-btn
                                 type="submit"
@@ -38,17 +39,22 @@ export default {
     methods: {
         // The userID will need to be dynamic. Should depend on dynamic link at some point.
         submitForm: function() {
-            axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/editBio.php?userID=" + this.$store.getters.getUser, {
-                bio: this.bio,
-                userID: this.$store.getters.getUser
-            })
-            .then(response => {
-                console.log(response.data)
-                alert('Bio successfully updated!')
-            })
-            .catch(function(error) {
-                console.log(error)
-            })
+
+            if(this.bio != '') {
+              axios.post("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/editBio.php?userID=" + this.$store.getters.getUser, {
+                  bio: this.bio,
+                  userID: this.$store.getters.getUser
+              })
+              .then(response => {
+                  console.log(response.data)
+                  alert('Bio successfully updated!')
+              })
+              .catch(function(error) {
+                  console.log(error)
+              })
+            } else {
+              alert('This field must not be empty');
+            }
         }
     }
 }

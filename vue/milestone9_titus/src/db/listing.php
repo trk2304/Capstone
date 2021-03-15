@@ -37,8 +37,16 @@ class Listing {
      * Edit product name, product description, price, category, etc.
      * Don't forget to go back and account for images. This will be important.
      */
-    public function editListing() {
+    public function editListing($listingID, $name, $price, $description) {
+      $stmt = $this->db->prepare("UPDATE listing SET productName = ?, price = ?, description = ? WHERE listingID = ?");
+      $stmt->bind_param('sdsi', $name, $price, $description, $listingID);
+      $stmt->execute();
 
+      if($stmt->error) {
+        echo "ERROR: " . $stmt->error;
+      }
+
+      $stmt->close();
     }
 
     /**
@@ -46,7 +54,7 @@ class Listing {
      */
     public function getUserListings($userID) {
         $stmt = $this->db->prepare("SELECT * FROM listing WHERE userID = ?");
-        $stmt-> bind_param('i', $userID);
+        $stmt-> bind_param('s', $userID);
         $stmt->execute();
 
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);

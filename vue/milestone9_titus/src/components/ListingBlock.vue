@@ -5,7 +5,7 @@
                 <v-card 
                     v-for="listing in listings"
                     :key="listing.listingID"
-                    width="350"
+                    width="760px"
                     class="listingCard"
                 >
                     <v-img
@@ -41,6 +41,18 @@
                         >
                             Delete Listing
                         </v-btn>
+
+                        <span v-if="profile()">
+                          <EditListing :listing="listing"/>
+                        </span> 
+
+                        <span v-if="profile()">
+                          <UploadListingImage :listing="listing"/>
+                        </span>
+    
+                        <span v-if="profile()">
+                          <ClearListingImages :listing="listing"/>
+                        </span> 
                     </v-card-actions>
                 </v-card>
             </v-row>
@@ -53,8 +65,16 @@
 
 <script>
 import axios from 'axios'
+import EditListing from './EditListing'
+import UploadListingImage from './UploadListingImage.vue'
+import ClearListingImages from './ClearListingImages.vue'
 export default {
     name: "ListingBlock",
+    components: {
+      EditListing,
+      UploadListingImage,
+      ClearListingImages
+    },
     data() {
         return {
             listings: [],
@@ -67,7 +87,7 @@ export default {
         axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getUserListings.php?userID=" + this.$store.getters.getUser)
         .then(response => {
             this.listings = response.data
-            console.log(response.data)
+            console.log(this.$store.getters.getUser);
         })
         .catch(function (error) {
             this.errors.push(error)
@@ -99,8 +119,11 @@ export default {
             } else {
                 return false
             }
-        }
+        },
 
+        editListing: function() {
+
+        }
 
     }
 
