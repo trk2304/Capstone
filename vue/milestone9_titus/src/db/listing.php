@@ -69,7 +69,7 @@ class Listing {
 
     public function getListingByListingID($listingID) {
         $stmt = $this->db->prepare("SELECT * FROM listing WHERE listingID = ?");
-        $stmt-> bind_param('i', $listingID);
+        $stmt->bind_param('i', $listingID);
         $stmt->execute();
 
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -80,6 +80,22 @@ class Listing {
         $stmt->close();
 
         return $result;
+    }
+
+    public function getListingsByCategory($category) {
+        $stmt = $this->db->prepare("SELECT * FROM listing WHERE category = ?");
+        $stmt->bind_param('s', $category);
+        $stmt->execute();
+
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if(!$result) {
+            exit('No rows');
+        }
+
+        $stmt->close();
+
+        return $result;
+
     }
 
     public function getAllListings() {

@@ -6,6 +6,9 @@
         
         <br><br><br>
         <h2>Add A New Listing</h2>
+        <br>
+        <p>Make sure to include the item's title, asking price, descrption, and category below.</p>
+        <br>
         <AddListing/>
     </div>
 
@@ -28,6 +31,11 @@ export default {
 
 <style scoped>
 h2 {
+  text-align: center;
+  margin: auto;
+}
+
+p {
   text-align: center;
   margin: auto;
 }

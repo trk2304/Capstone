@@ -38,6 +38,53 @@
                 </v-row>
 
                 <v-row justify="center">
+                  <v-col cols="12" class="d-flex align-items:center">
+                    <v-radio-group
+                      v-model="category"
+                      row
+                      mandatory
+                    >
+                      <v-radio
+                        label="Tech"
+                        value="tech"
+                        name="category"
+                      >
+                      </v-radio>
+                       <v-radio
+                        label="Books"
+                        value="books"
+                        name="category"
+                      >
+                      </v-radio>
+                      <v-radio
+                        label="Sports"
+                        value="sports"
+                        name="category"
+                      >
+                      </v-radio>
+                      <v-radio
+                        label="Clothing"
+                        value="clothing"
+                        name="category"
+                      >
+                      </v-radio>
+                      <v-radio
+                        label="Gaming"
+                        value="gaming"
+                        name="category"
+                      >
+                      </v-radio>
+                       <v-radio
+                        label="Miscellaneous"
+                        value="misc"
+                        name="category"
+                      >
+                      </v-radio>
+                    </v-radio-group>
+                  </v-col>
+                </v-row>
+
+                <v-row justify="center">
                     <v-col cols="1">
                         <v-btn
                             rounded
@@ -50,6 +97,7 @@
                         </v-btn>
                     </v-col>
                 </v-row>
+
             </v-form>
         </v-container>
     </div>
@@ -63,7 +111,8 @@ export default {
         return {
                 productName: '',
                 productPrice: '',
-                productDescription: ''
+                productDescription: '',
+                category: ''
         }
     },
     methods: {
@@ -78,7 +127,8 @@ export default {
                   productName: this.productName,
                   productPrice: this.productPrice,
                   productDescription: this.productDescription,
-                  userID: this.$store.getters.getUser
+                  userID: this.$store.getters.getUser,
+                  category: this.category
               }).then(response => {
                   console.log(response);
                   alert('Listing successfully added!')

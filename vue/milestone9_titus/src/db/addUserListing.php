@@ -23,11 +23,11 @@ $listingObject = new Listing();
 
 if(isset($_POST)) {
     $result = json_decode(file_get_contents('php://input'), true);
-    echo $result["productName"];
     // Type cast the price
     $price = (double)$result['productPrice'];
     $userID = $result['userID'];
-    $listingObject->addListing($userID, $result['productName'], $result['productDescription'], $price, "tech");
+    $category = $result['category'];
+    $listingObject->addListing($userID, $result['productName'], $result['productDescription'], $price, $category);
 }
 
 ?>

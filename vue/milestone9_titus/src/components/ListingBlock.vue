@@ -17,7 +17,7 @@
                     </v-img>
 
                     <v-card-subtitle class="pb-10">
-                        ${{ listing.price }}
+                        ${{ listing.price }} | {{listing.category}}
                     </v-card-subtitle>
 
                     <v-card-text class="text--primary">
