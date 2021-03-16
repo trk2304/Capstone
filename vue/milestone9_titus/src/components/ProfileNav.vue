@@ -63,12 +63,18 @@ export default {
               },
               { 
                 id: 2,
-                navTitle: "Your Listings",
+                navTitle: "My Listings",
                 isActive: false,
                 route: 'myListings'
               },
               {
                 id: 3,
+                navTitle: "My Reviews",
+                isActive: false,
+                route: 'myReviews'
+              },
+              {
+                id: 4,
                 navTitle: "Profile Settings",
                 isActive: false,
                 route: 'mySettings'

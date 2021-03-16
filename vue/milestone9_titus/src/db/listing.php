@@ -37,9 +37,9 @@ class Listing {
      * Edit product name, product description, price, category, etc.
      * Don't forget to go back and account for images. This will be important.
      */
-    public function editListing($listingID, $name, $price, $description) {
-      $stmt = $this->db->prepare("UPDATE listing SET productName = ?, price = ?, description = ? WHERE listingID = ?");
-      $stmt->bind_param('sdsi', $name, $price, $description, $listingID);
+    public function editListing($listingID, $name, $price, $description, $category) {
+      $stmt = $this->db->prepare("UPDATE listing SET productName = ?, price = ?, description = ?, category = ? WHERE listingID = ?");
+      $stmt->bind_param('sdssi', $name, $price, $description, $category, $listingID);
       $stmt->execute();
 
       if($stmt->error) {
@@ -80,6 +80,18 @@ class Listing {
         $stmt->close();
 
         return $result;
+    }
+
+    public function getHomeListings() {
+      $stmt = $this->db->prepare("SELECT * FROM listing ORDER BY uploadDate DESC LIMIT 3");
+      $stmt->execute();
+
+      $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+      if(!$result) {
+        exit("No Rows");
+      }
+
+      return $result;
     }
 
     public function getListingsByCategory($category) {

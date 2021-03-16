@@ -43,6 +43,7 @@
                       v-model="category"
                       row
                       mandatory
+                      label="Item Category:"
                     >
                       <v-radio
                         label="Tech"

@@ -33,8 +33,10 @@
         </v-btn>
 
         <v-btn
+          v-if="this.listing.userID != this.$store.getters.getUser"
           color="primary"
           text
+          :to="'/viewUser/' + this.listing.userID"
         >
           View User
         </v-btn>

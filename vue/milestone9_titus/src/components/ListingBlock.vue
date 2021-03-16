@@ -8,13 +8,7 @@
                     width="760px"
                     class="listingCard"
                 >
-                    <v-img
-                        class="white--text align-end"
-                        height="200px"
-                        src="https://via.placeholder.com/150"
-                    >
                         <v-card-title class="listingTitle">{{ listing.productName }}</v-card-title>
-                    </v-img>
 
                     <v-card-subtitle class="pb-10">
                         ${{ listing.price }} | {{listing.category}}

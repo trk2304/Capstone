@@ -26,6 +26,10 @@ const routes = [
       {
         path: 'mySettings',
         component: () => import('../components/ProfileSettings.vue')
+      },
+      {
+        path: 'myReviews',
+        component: () =>import('../views/MyReviews.vue')
       }
     ]
   },

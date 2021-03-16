@@ -25,7 +25,7 @@ if(isset($_POST)) {
     $result = json_decode(file_get_contents('php://input'), true);
     // Type cast the price
     $price = (double)$result['price'];
-    $listingObject->editListing($result['id'], $result['name'], $price, $result['description']);
+    $listingObject->editListing($result['id'], $result['name'], $price, $result['description'], $result['category']);
 }
 
 ?>

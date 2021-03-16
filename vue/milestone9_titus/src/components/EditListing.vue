@@ -1,5 +1,5 @@
 <template>
-  <v-dialog max-width="600px">
+  <v-dialog max-width="800px">
     <template v-slot:activator="{on, attrs}">
     <v-btn color="primary" text v-bind="attrs" v-on="on">Edit Listing</v-btn>
     </template>
@@ -49,6 +49,55 @@
                 </v-textarea>
               </v-col>
             </v-row>
+
+            <v-row>
+            
+              <v-col cols="12" class="d-flex align-items:center">
+                    <v-radio-group
+                      label="Catgegory:"
+                      v-model="listing.category"
+                      row
+                      mandatory
+                    >
+                      <v-radio
+                        label="Tech"
+                        value="tech"
+                        name="category"
+                      >
+                      </v-radio>
+                       <v-radio
+                        label="Books"
+                        value="books"
+                        name="category"
+                      >
+                      </v-radio>
+                      <v-radio
+                        label="Sports"
+                        value="sports"
+                        name="category"
+                      >
+                      </v-radio>                                                                                                           <v-radio
+                        label="Clothing"
+                        value="clothing"
+                        name="category"
+                      >
+                      </v-radio>
+                      <v-radio
+                        label="Gaming"
+                        value="gaming"
+                        name="category"
+                      >
+                      </v-radio>
+                       <v-radio
+                        label="Miscellaneous"
+                        value="misc"
+                        name="category"
+                      >
+                      </v-radio>
+                    </v-radio-group>
+                  </v-col>
+  
+            </v-row>
     
       
           </v-container>
@@ -93,7 +142,8 @@ export default {
             name: this.listing.productName,
             price: this.listing.price,
             description: this.listing.description,
-            id: this.listing.listingID
+            id: this.listing.listingID,
+            category: this.listing.category
           })
           .then(response => {
             console.log(response)

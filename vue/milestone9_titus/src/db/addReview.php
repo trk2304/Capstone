@@ -2,7 +2,7 @@
 /**
  * This script is meant to be the means by which a ListingBlock component can pull necessary information about a listing.
  */
-require_once('listing.php');
+require_once('review.php');
 
 
 // Taken from this source for development purposes: https://stackoverflow.com/questions/61642547/php-response-to-preflight-request-doesnt-pass-access-control-check-it-does-n
@@ -19,19 +19,12 @@ if ($method == "OPTIONS") {
     die();
 }
 
-$listingObject = new Listing();
+$reviewObject = new Review();
 
-
-// Need to get the ID from Axios API call.
 if(isset($_POST)) {
-    // Result holds listing based on provided ID.
-    $id = json_decode(file_get_contents('php://input'), true);
+    $contents = json_decode(file_get_contents('php://input'), true);
     
-    // Get the result of the call.
-    $result = $listingObject->getListingByListingId($id["id"]);
-
-    // Send the contents of the listing based on the listingID back to the front end.
-    echo json_encode($result); 
+    $reviewObject->insertReview($contents['userID'], $contents['reviewedUserID'], $contents['title'], $contents['description'], $contents['rating']);
 }
 
 

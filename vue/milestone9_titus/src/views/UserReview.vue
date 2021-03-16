@@ -16,10 +16,18 @@
       </v-avatar>
     </div>
     <div class="welcome">
-      <h1 class="display-1">Welcome to my Profile</h1>
+      <h1 class="display-1">Overview of {{this.reviewedUser[0].userID}}</h1>
       <br>
-      <h3>About Me:</h3>
+      <h3>About {{this.reviewedUser[0].userID}}:</h3>
       <p>{{this.reviewedUser[0].bio}}</p>
+    </div>
+
+    <div class="reviews">
+
+    </div>
+
+    <div class="addReview">
+      <AddReview v-if="this.$store.getters.getUser != this.reviewedUser[0].userID"/>
     </div>
 
 </v-container>
@@ -32,8 +40,12 @@
 
 <script>
 import axios from 'axios'
+import AddReview from '../components/AddReview.vue'
 export default {
   name: 'UserReview',
+  components: {
+    AddReview
+  },
   data() {
     return {
       reviewedUser: [],

@@ -27,18 +27,13 @@
                             width="350"
                             class="listingCard"
                         >
-                          <v-img
-                              class="white--text align-end"
-                              height="200px"
-                              src="https://via.placeholder.com/150"
-                          >
+                        
                               <v-card-title class="listingTitle">{{ listing.productName }} - ${{listing.price}}</v-card-title>
-                          </v-img>
 
                           <v-card-subtitle class="pb-10 listingDescription">
                               {{ listing.description }}
                           </v-card-subtitle>
-
+                          <v-spacer></v-spacer>
                           <v-card-actions class="card-actions">
                               <v-btn
                                   color="primary"
