@@ -1,5 +1,8 @@
 <template>
-  <v-dialog max-width="800px">
+  <v-dialog 
+    persistent
+    v-model="dialog"
+    max-width="800px">
     <template v-slot:activator="{on, attrs}">
     <v-btn color="primary" text v-bind="attrs" v-on="on">Edit Listing</v-btn>
     </template>
@@ -76,7 +79,8 @@
                         value="sports"
                         name="category"
                       >
-                      </v-radio>                                                                                                           <v-radio
+                      </v-radio>                                                                                                          
+                      <v-radio
                         label="Clothing"
                         value="clothing"
                         name="category"
@@ -107,9 +111,19 @@
       <v-card-actions>
         <v-btn
           color="primary"
+          text
           @click="checkAndSubmit()"  
         >
           Save Changes
+        </v-btn>
+  
+
+        <v-btn
+          color="primary"
+          text
+          @click="dialog=false"
+        >
+          Close
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -126,7 +140,8 @@ export default {
       data: this.listing,
       productName: '',
       productPrice: '',
-      productDescription:''
+      productDescription:'',
+      dialog: false
     }
   },
 
@@ -148,6 +163,7 @@ export default {
           .then(response => {
             console.log(response)
             alert("Changes saved!");
+            this.dialog = false
           })
           .catch(e => {
             console.log(e)

@@ -23,7 +23,7 @@ class Review {
       $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
       if(!$result) {
-        exit("No rows");
+        $result = "No rows";
       }
 
       $stmt->close();

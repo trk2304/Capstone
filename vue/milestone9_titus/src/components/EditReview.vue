@@ -127,6 +127,7 @@ export default {
         })
         .then(response => {
            console.log(response)
+           this.dialog = false
         })
         .catch(e => {
           console.log(e)

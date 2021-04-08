@@ -69,7 +69,7 @@ export default {
     }
   },
   created() {
-    axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getAllListings.php")
+    axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getHomeListings.php")
     .then(result => {
       this.listings = result.data
     })
@@ -88,12 +88,11 @@ export default {
 </script>
 
 <style scoped>
-
+/* Hero Image CSS borrowed from w3schools. */
 .hero-image {
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/blueangels_hero.jpg");
 
-  /* Set a specific height */
   height: 50vh;
 
   /* Position and center the image to scale nicely on all screens */

@@ -1,5 +1,8 @@
 <template>
-  <v-dialog max-width="600px">
+  <v-dialog 
+    persistent
+    v-model="dialog"
+    max-width="600px">
     <template v-slot:activator="{on, attrs}">
     <v-btn color="primary" text v-bind="attrs" v-on="on">Upload Image</v-btn>
     </template>
@@ -32,10 +35,16 @@
       <v-card-actions>
         <v-btn
           color="primary"
+          text
           @click="checkAndSubmit()"  
         >
           Upload Image
         </v-btn>
+        <v-btn
+          color="primary"
+          @click="dialog = false"
+          text
+        >Close</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog> 
@@ -50,7 +59,8 @@ export default {
     return {
       data: this.listing,
       fileInput: '',
-      validTypes: ["image/jpg", "image/jpeg", "image/png"]
+      validTypes: ["image/jpg", "image/jpeg", "image/png"],
+      dialog: false
     }
   },
   methods: {

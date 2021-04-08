@@ -3,14 +3,7 @@
       class="mx-auto d-flex flex-column"
       max-width="400"
     >
-      <v-img
-        class="white--text align-end"
-        width="400px"
-        max-height="300px"
-        src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-      >
         <v-card-title>{{this.listing.productName}}</v-card-title>
-      </v-img>
 
       <v-card-subtitle class="pb-0">
         {{this.listing.price}}  |  {{this.listing.category}}  |  Sold By: {{this.listing.userID}}

@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <h3>Had a Transaction with XXX? Let others know how it when!</h3>
+        <h3>Had a Transaction with {{this.$route.params.id}}? Let others know how it when!</h3>
       </v-col>
     </v-row>
 
@@ -98,6 +98,7 @@ export default {
         })
         .then(response => {
           console.log(response.data)
+          alert('Review Uploaded Successfully!')
         })
         .catch(e => {
           console.log(e)
