@@ -23,6 +23,11 @@ export default {
     name: 'User',
     components: {
         ProfileNav
+    },
+    created() {
+      if(this.$store.getters.getUser == null || this.$store.getters.getUser == undefined) {
+        window.location.href = "http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/lib_auth_usna.php"
+      }
     }
 }
 </script>

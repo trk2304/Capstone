@@ -69,6 +69,11 @@ export default {
     }
   },
   created() {
+    
+    //This line checks to see if a user is even logged in. If not, they get booted to the login page.
+    if(this.$store.getters.getUser == undefined && this.$route.query.user == null && this.$route.query.token == null) {
+        window.location.href = "http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/lib_auth_usna.php"         }
+
     axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getHomeListings.php")
     .then(result => {
       this.listings = result.data
@@ -81,6 +86,8 @@ export default {
     if(this.$store.getters.getUser == null) {
       this.$store.commit('setUser', this.$route.query.user)
       this.$store.commit('setToken', this.$route.query.token)
+      this.$store.commit('setFirstName', this.$route.query.firstName)
+      this.$store.commit('setLastName', this.$route.query.lastName)
     }
 
   }

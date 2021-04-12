@@ -30,6 +30,27 @@ $justToken = substr($tokenString, 6);
 
 $user = $_GET['display'];
 
+$fullNameString = $queryArray[3];
+
+$fullNameArray = explode("+", $fullNameString);
+
+print_r($fullNameArray);
+
+// trim first 9 characters of last name string and last 3 characters.
+
+$lastNameFirstStep = substr($fullNameArray[0], 9);
+
+// This is the user's last name
+$lastName = substr($lastNameFirstStep, 0, -3);
+
+
+// This is the user's first name
+$firstName = $fullNameArray[1];
+
+
+
+
+
 // Redirect
-header("Location: http://10.1.83.57:8080?token=$justToken&user=$user");
+header("Location: http://10.1.83.57:8080?token=$justToken&user=$user&firstName=$firstName&lastName=$lastName");
 ?>

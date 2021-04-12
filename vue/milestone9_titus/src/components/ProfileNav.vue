@@ -12,11 +12,11 @@
             <v-list-item-avatar color="indigo" size="48">
               <!-- Image that will get pulled from db -->
               
-               <span id="icon" class="white--text headline">M</span>
+               <span id="icon" class="white--text headline">{{firstName[0]}}</span>
             </v-list-item-avatar>
 
             <v-list-item-content>
-              <v-list-item-title>{{user[0].userID}}</v-list-item-title>
+              <v-list-item-title>{{firstName + " " + lastName}}</v-list-item-title>
               <v-list-item-subtitle>User</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
@@ -80,14 +80,21 @@ export default {
                 route: 'mySettings'
               }
           ],
-          user: ''
+          user: '',
+          firstName: '',
+          lastName: ''
       }
     },
     created() {
+
+      console.log(this.firstName)
+
       // Attempting to get the username to display in the Profile Nav.
         axios.get("http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/getUser.php?userID=" + this.$store.getters.getUser)
         .then(response => {
           this.user = response.data
+          this.firstName = this.$store.getters.getFirstName,
+          this.lastName = this.$store.getters.getLastName
         })
         .catch(e => {
           console.log(e)
@@ -96,7 +103,7 @@ export default {
 
     methods: {
       logout: function() {
-        this.$store.commit('logout')
+        this.$store.commit("logOff")
         window.location.href="http://midn.cs.usna.edu/MidTrade/Capstone/vue/milestone9_titus/src/db/lib_auth_usna.php"
       }
     }

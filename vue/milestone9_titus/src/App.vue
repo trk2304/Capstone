@@ -6,7 +6,7 @@
       dark
     >
       <div class="d-flex align-center">
-        <span class="mr-2">MidTrade</span>
+       <router-link to="/" class="navLink" style="margin-left:20px !important;">MidTrade</router-link>
       </div>
 
       <v-spacer></v-spacer>

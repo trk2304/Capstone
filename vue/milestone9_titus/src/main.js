@@ -18,6 +18,8 @@ const store = new Vuex.Store({
 
   state: {
     user: null,
+    firstName: null,
+    lastName: null,
     token: null
   },
 
@@ -29,10 +31,20 @@ const store = new Vuex.Store({
     setToken(state, token) {
       state.token = token
     },
+    
+    setFirstName(state, firstName) {
+      state.firstName = firstName
+    },
+
+    setLastName(state, lastName) {
+      state.lastName = lastName
+    },
 
     logOff(state) {
       state.user = null
       state.token = null
+      state.firstName = null
+      state.lastName = null
     }
   },
   
@@ -41,11 +53,20 @@ const store = new Vuex.Store({
       return state.user
     },
 
+    getFirstName: (state) => {
+      return state.firstName
+    },
+
+    getLastName: (state) => {
+      return state.lastName
+    },
+
     getToken: (state) => {
       return state.token
     }
   }
 });
+
 
 
 new Vue({

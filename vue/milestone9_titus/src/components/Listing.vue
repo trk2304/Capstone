@@ -2,11 +2,12 @@
     <v-card
       class="mx-auto d-flex flex-column"
       max-width="400"
+      :to="'/listingView/' + this.listing.listingID"
     >
         <v-card-title>{{this.listing.productName}}</v-card-title>
 
       <v-card-subtitle class="pb-0">
-        {{this.listing.price}}  |  {{this.listing.category}}  |  Sold By: {{this.listing.userID}}
+        Price: ${{this.listing.price}}  |  {{this.listing.category}}  |  Sold By: {{this.listing.userID}}
       </v-card-subtitle>
 
       <br>

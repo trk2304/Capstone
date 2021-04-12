@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <h3>Had a Transaction with {{this.$route.params.id}}? Let others know how it when!</h3>
+        <h3>Had a Transaction with {{this.$route.params.id}}? Let others know how it went!</h3>
       </v-col>
     </v-row>
 
