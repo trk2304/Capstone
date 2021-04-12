@@ -25,6 +25,7 @@
                             v-for="listing in listings"
                             :key="listing.listingID"
                             width="350"
+                            :to="'/listingView/' + listing.listingID"
                             class="listingCard"
                         >
                         

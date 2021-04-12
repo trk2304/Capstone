@@ -14,6 +14,7 @@
       <router-link to="/" class="navLink">Home</router-link>
       <router-link :to="'/user/' + this.$store.getters.getUser + '/overview'" class="navLink">Profile</router-link>
       <router-link to="/listings" class="navLink">Listings</router-link>
+      <router-link to="/contact" class="navLink">Contact</router-link>
     </v-app-bar>
 
     <v-main>
