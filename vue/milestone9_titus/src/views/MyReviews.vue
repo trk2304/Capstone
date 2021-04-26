@@ -4,7 +4,7 @@
     
 
 
-    <div v-if="reviews.length == 0">
+    <div v-if="this.reviews == 'No rows'">
       <h3 class="mt-4" style="text-align:center;">You haven't written any reviews yet.</h3>
     </div>
 

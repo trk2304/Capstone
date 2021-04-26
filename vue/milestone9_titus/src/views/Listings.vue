@@ -4,6 +4,7 @@
       <br> 
       <h1 class="display-1">Explore Listings on MidTrade Now</h1>
 
+
       <div>
         <FilterListing @applyFilter="setFilter"/>
       </div>

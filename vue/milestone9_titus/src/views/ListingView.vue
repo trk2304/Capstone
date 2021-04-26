@@ -6,7 +6,7 @@
         <h1 class="display-1">Seller: <a :href="'/viewUser/' + listing[0].userID">{{listing[0].userID}}</a></h1>
         
         <br>
-        <h3>Here's my Email: <a :href="'mailto:'+listing[0].userID +'@usna.edu'">Message me now!</a></h3>
+        <h3><a target="_blank" :href="'https://mail.google.com/mail/u/0/?fs=1&to='+listing[0].userID+'@usna.edu &tf=cm'">Click here to message the seller.</a></h3>
         <br>
 
         <!-- Image of the Item Goes Here -->
@@ -16,6 +16,10 @@
               <v-container class="d-flex justify-space-around">
                 <v-img max-width="500px" max-height="500px" contain v-for="image in images" :src="image.path" alt="Broken file" :key="image.imageID"></v-img>
               </v-container>
+          </div>
+
+          <div v-else>
+            No Images uploaded for this listing.
           </div>
         <br>
         <h2>Description:</h2>

@@ -54,9 +54,9 @@ const routes = [
 
   },
   {
-    path: '/Contact/',
-    name: 'Contact',
-    component: () => import('../views/Contact.vue')
+    path: '/post',
+    name: 'Post',
+    component: () => import('../views/AddListingView.vue')
   }
 ]
 

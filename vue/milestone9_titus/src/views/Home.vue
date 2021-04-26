@@ -14,48 +14,97 @@
 
       <br>
 
-      <div class="recentListings">
+      <div class="about_section">
         <v-container>
-            <h1 class="display-2 sectionHeader">Most Recent Listings</h1>
-            <br><br>
-            <div class="block">
-                  <v-container class="listingBlocks">
-                      <v-row class="d-flex justify-space-around" v-if="!(this.listings === undefined) && this.listings.length != 0 && this.listings != 'No rows'">
-                        <v-card 
-                            v-for="listing in listings"
-                            :key="listing.listingID"
-                            width="350"
-                            :to="'/listingView/' + listing.listingID"
-                            class="listingCard"
-                        >
-                        
-                              <v-card-title class="listingTitle">{{ listing.productName }} - ${{listing.price}}</v-card-title>
+          <v-row>
+            <v-col cols="12">
+              <h1 class="display-2 sectionHeader">About MidTrade</h1>
+            </v-col>
+          </v-row>
 
-                          <v-card-subtitle class="pb-10 listingDescription">
-                              {{ listing.description }}
-                          </v-card-subtitle>
-                          <v-spacer></v-spacer>
-                          <v-card-actions class="card-actions">
-                              <v-btn
-                                  color="primary"
-                                  text
-                                  :to="'/listingView/' + listing.listingID"
-                              >
-                                  View Listing
-                              </v-btn>
-                          </v-card-actions>
-                        </v-card>
-                      </v-row>
+          <br><br>   
+ 
+          <v-row>
+            <v-col cols="6" class="d-flex flex-column align-center columnText">
+    
+          <h2>What is MidTrade?</h2>
+          <br>
+          <p>MidTrade is a platform designed to allow Midshipmen from the Naval Academy to buy and sell their used items between each other. Rather than worry about having to make a trip to the MidStore, Uniform Store, or retailer off the yard, Mids can save money and reuse items by exchanging with one another!</p>
 
-                <div v-else>
-                    <h3>There are no listings.</h3>
-                </div>
+          <p>In 2017, MidTrade was a website hosted by a larger entity called 'My College Town', but shortly after gaining traction, the site vanished. Inspired by the previous iteration and enthralled with making the lives of Midshipmen more and more convenient, our team decided to bring MidTrade back to life, with the hope of hosting it permanently on the Intranet.</p>
 
-                <br>
-                </v-container>
-          </div>
+            </v-col>
+
+            <v-col cols="6">
+              <img src="https://www.armytimes.com/resizer/jmJaKdIodb-oJ6xOxeu_CWYtQPw=/1200x0/filters:quality(100)/cloudfront-us-east-1.images.arcpublishing.com/mco/K5S6YHRRSBEJHLKMVCOQ6EIJQE.jpg" class="columnImage" alt="Plebe Summer">
+            </v-col>
+          </v-row>
+
+          <br><br><br><br>
+
+          <v-row>
+            <v-col cols="12">
+              <h1 class="display-2 sectionHeader">Contact the Developers</h1>
+              <br>
+            </v-col>
+          </v-row>
+      
+          <v-row>
+            <v-col cols="3">
+              <v-card class="mx-auto">
+                <v-img src="https://usna.blackboard.com/bbcswebdav/orgs/DEPTCSERV/Midn%20Photos/2021/M213438.jpg"></v-img>
+                <v-card-title>Titus Kilpatrick</v-card-title>
+
+                <v-card-subtitle>Email: <a target="_blank" href="https://mail.google.com/mail/u/0/?fs=1&to=m213438@usna.edu&tf=cm"> m213438@usna.edu</a></v-card-subtitle>
+
+                <v-card-text>Titus Kilpatrick is from Greensboro, North Carolina, and service selected submarines. He studied Information Technology at the Naval Academy, and is a member of 8th Company. His hobbies include studying web development technologies, practicing Judo, and pc gaming.</v-card-text>
+              </v-card>
+            </v-col>
+
+            <v-col cols="3">
+
+              <v-card class="mx-auto">
+                <v-img src="https://usna.blackboard.com/bbcswebdav/orgs/DEPTCSERV/Midn%20Photos/2021/M210738.jpg"></v-img>
+                <v-card-title>Chloe Bryan</v-card-title>
+
+                <v-card-subtitle>Email: <a target="_blank" href="https://mail.google.com/mail/u/0/?fs=1&to=m210738@usna.edu&tf=cm">m210738@usna.edu</a></v-card-subtitle>
+
+                <v-card-text>Chloe Bryan is from Fuquay-Varina, NC, and service selected NFO. She studied Computer Science here at USNA and is a proud member of 28th company, and 2nd company (ret).  Her hobbies include running marathons, canoeing, outdoor activities, and gardening.  Her favorite part about midTrade is selling sports equipment.</v-card-text>
+              </v-card>
+            </v-col>
+
+            <v-col cols="3">
+              <v-card class="mx-auto">
+                <v-img src="https://usna.blackboard.com/bbcswebdav/orgs/DEPTCSERV/Midn%20Photos/2021/M215934.jpg"></v-img>
+                <v-card-title>Tom Savarese</v-card-title>
+
+                <v-card-subtitle>Email: <a target="_blank" href="https://mail.google.com/mail/u/0/?fs=1&to=m215934@usna.edu&tf=cm">m215934@usna.edu</a></v-card-subtitle>
+
+                <v-card-text>
+                Tom Savarese is a young computer scientist from Shelton, CT. Prior to attending USNA he was a Navy Nuclear Electronics Technician. After graduation he will be attending Nuclear Power School in Charleston, SC to become a submarine officer.
+                </v-card-text>
+              </v-card>
+
+            </v-col>
+
+            <v-col cols="3">
+
+              <v-card class="mx-auto">
+                <v-img src="https://usna.blackboard.com/bbcswebdav/orgs/DEPTCSERV/Midn%20Photos/2021/M212262.jpg"></v-img>
+                <v-card-title>Ed Gomez</v-card-title>
+
+                <v-card-subtitle>Email: <a target="_blank" href="https://mail.google.com/mail/u/0/?fs=1&to=m212262@usna.edu&tf=cm">m212262@usna.edu</a></v-card-subtitle>
+
+                <v-card-text>
+                  Ed Gomez comes from the distant land of San Clemente, CA and he service selected Submarines. This Computer Science major enjoys playing guitar and long walks on the beach while listening to Careless Whisper.  
+                </v-card-text>
+              </v-card>
+
+            </v-col>
+          </v-row>
+
         </v-container>
-      </div>
+      </div> 
   </div>
 </template>
 
@@ -119,7 +168,7 @@ export default {
   color: white;
 }
 
-p {
+p.lead {
   text-align: center;
   position: absolute;
   top: 60%;
@@ -152,7 +201,17 @@ p {
   bottom: 0;
 }
 
-/** 
-  NEED TO LOOK INTO CUTTING OFF THE OVERFLOW TEXT IF A DESCRIPTION IS TOO LONG.
- */
+.columnImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.columnText {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.devImage {
+  border-radius: 25px;
+}
 </style>
