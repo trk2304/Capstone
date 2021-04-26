@@ -51,7 +51,7 @@
       
           <v-row>
             <v-col cols="3">
-              <v-card class="mx-auto">
+              <v-card class="mx-auto" height="100%">
                 <v-img src="https://usna.blackboard.com/bbcswebdav/orgs/DEPTCSERV/Midn%20Photos/2021/M213438.jpg"></v-img>
                 <v-card-title>Titus Kilpatrick</v-card-title>
 
@@ -63,7 +63,7 @@
 
             <v-col cols="3">
 
-              <v-card class="mx-auto">
+              <v-card class="mx-auto" height="100%">
                 <v-img src="https://usna.blackboard.com/bbcswebdav/orgs/DEPTCSERV/Midn%20Photos/2021/M210738.jpg"></v-img>
                 <v-card-title>Chloe Bryan</v-card-title>
 
@@ -74,7 +74,7 @@
             </v-col>
 
             <v-col cols="3">
-              <v-card class="mx-auto">
+              <v-card class="mx-auto" height="100%">
                 <v-img src="https://usna.blackboard.com/bbcswebdav/orgs/DEPTCSERV/Midn%20Photos/2021/M215934.jpg"></v-img>
                 <v-card-title>Tom Savarese</v-card-title>
 
@@ -89,7 +89,7 @@
 
             <v-col cols="3">
 
-              <v-card class="mx-auto">
+              <v-card class="mx-auto" height="100%">
                 <v-img src="https://usna.blackboard.com/bbcswebdav/orgs/DEPTCSERV/Midn%20Photos/2021/M212262.jpg"></v-img>
                 <v-card-title>Ed Gomez</v-card-title>
 
@@ -178,27 +178,6 @@ p.lead {
 
 .sectionHeader {
   text-align: center;
-}
-
-.listingTitle {
-    color: black;
-}
-
-.listingBlocks {
-    margin-top: 3rem;
-}
-
-.listingCard {
-    margin: 1.0rem;
-}
-
-.listingDescription {
-  color: black !important;
-}
-
-.card-actions {
-  position: absolute;
-  bottom: 0;
 }
 
 .columnImage {
